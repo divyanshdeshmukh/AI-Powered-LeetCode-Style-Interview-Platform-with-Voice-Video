@@ -32,6 +32,7 @@ const CodeEditor = () => {
               <SelectItem value="javascript">JavaScript</SelectItem>
               <SelectItem value="python">Python</SelectItem>
               <SelectItem value="java">Java</SelectItem>
+              <SelectItem value="cpp">C++</SelectItem>
             </SelectContent>
           </Select>
         </div>

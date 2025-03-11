@@ -77,7 +77,14 @@ function twoSum(nums, target) {
         // Your code here
         return new int[]{};
     }
-}`
+}`,
+      cpp: `class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        // Your code here
+        return {};
+    }
+};`
     }
   }
 ];
