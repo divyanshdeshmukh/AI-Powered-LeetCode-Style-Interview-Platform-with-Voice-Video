@@ -7,6 +7,11 @@ import CodeEditor from '@/components/CodeEditor';
 import FeedbackPanel from '@/components/FeedbackPanel';
 import { useInterview } from '@/contexts/InterviewContext';
 import { X, ArrowLeft, Home } from 'lucide-react';
+import { 
+  ResizablePanelGroup, 
+  ResizablePanel, 
+  ResizableHandle 
+} from '@/components/ui/resizable';
 
 const InterviewPage = () => {
   const { status, startInterview, endInterview } = useInterview();
@@ -98,13 +103,29 @@ const InterviewPage = () => {
           </div>
           
           {/* Code and feedback - right side on large screens, bottom on mobile */}
-          <div className="md:col-span-3 flex flex-col space-y-4 h-full">
-            <div className="flex-grow">
-              <CodeEditor />
-            </div>
-            <div className="h-64 md:h-80">
-              <FeedbackPanel />
-            </div>
+          <div className="md:col-span-3 flex flex-col h-full">
+            <ResizablePanelGroup 
+              direction="vertical" 
+              className="h-full rounded-lg overflow-hidden"
+            >
+              <ResizablePanel 
+                defaultSize={50} 
+                minSize={20}
+                className="bg-white/10 dark:bg-gray-800/20 backdrop-blur-md rounded-t-lg"
+              >
+                <CodeEditor />
+              </ResizablePanel>
+              
+              <ResizableHandle withHandle className="h-2 bg-white/5 hover:bg-white/10 transition-colors" />
+              
+              <ResizablePanel 
+                defaultSize={50} 
+                minSize={20}
+                className="bg-white/10 dark:bg-gray-800/20 backdrop-blur-md rounded-b-lg"
+              >
+                <FeedbackPanel />
+              </ResizablePanel>
+            </ResizablePanelGroup>
           </div>
         </div>
       </main>
