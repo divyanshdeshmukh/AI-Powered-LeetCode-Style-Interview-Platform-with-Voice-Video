@@ -19,7 +19,7 @@ import {
   Line,
   Legend
 } from 'recharts';
-import { Calendar, Clock, Code, ThumbsUp, Award, Play } from 'lucide-react';
+import { Calendar, Clock, Code, ThumbsUp, Award, Play, ArrowLeft, Home } from 'lucide-react';
 
 // Sample data for dashboard
 const pastInterviews = [
@@ -57,19 +57,40 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50/70 to-blue-50/70 dark:from-gray-900/90 dark:to-blue-900/90 backdrop-blur-md">
+      <header className="bg-white/20 dark:bg-gray-800/20 border-b border-gray-200/30 dark:border-gray-700/30 py-3 px-4 backdrop-blur-md">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <h1 className="text-xl font-bold">Your Dashboard</h1>
+          <div className="flex items-center">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="rounded-full mr-2 hover:bg-white/10"
+              onClick={() => navigate(-1)}
+              title="Go Back"
+            >
+              <ArrowLeft size={18} />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="rounded-full mr-4 hover:bg-white/10"
+              onClick={() => navigate('/')}
+              title="Home"
+            >
+              <Home size={18} />
+            </Button>
+            <h1 className="text-xl font-bold">Your Dashboard</h1>
+          </div>
           <div className="flex space-x-2">
             <Button 
               variant="outline" 
               onClick={() => navigate('/settings')}
+              className="bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md"
             >
               Settings
             </Button>
             <Button 
-              className="bg-interview-blue hover:bg-interview-blue-dark"
+              className="bg-interview-blue/80 hover:bg-interview-blue-dark/80 backdrop-blur-md"
               onClick={() => navigate('/interview')}
             >
               New Interview
@@ -81,10 +102,10 @@ const DashboardPage = () => {
       <main className="p-4 max-w-7xl mx-auto">
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <Card>
+          <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
             <CardContent className="pt-6">
               <div className="flex items-center">
-                <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                <div className="bg-blue-100/70 dark:bg-blue-900/70 p-3 rounded-full mr-4 backdrop-blur-sm">
                   <Calendar className="h-6 w-6 text-interview-blue" />
                 </div>
                 <div>
@@ -95,10 +116,10 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
             <CardContent className="pt-6">
               <div className="flex items-center">
-                <div className="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                <div className="bg-green-100/70 dark:bg-green-900/70 p-3 rounded-full mr-4 backdrop-blur-sm">
                   <Clock className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
@@ -109,10 +130,10 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
             <CardContent className="pt-6">
               <div className="flex items-center">
-                <div className="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                <div className="bg-purple-100/70 dark:bg-purple-900/70 p-3 rounded-full mr-4 backdrop-blur-sm">
                   <Code className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
@@ -123,10 +144,10 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
             <CardContent className="pt-6">
               <div className="flex items-center">
-                <div className="bg-amber-100 dark:bg-amber-900 p-3 rounded-full mr-4">
+                <div className="bg-amber-100/70 dark:bg-amber-900/70 p-3 rounded-full mr-4 backdrop-blur-sm">
                   <Award className="h-6 w-6 text-amber-600 dark:text-amber-400" />
                 </div>
                 <div>
@@ -140,7 +161,7 @@ const DashboardPage = () => {
         
         {/* Charts */}
         <Tabs defaultValue="performance" className="mb-6">
-          <TabsList className="mb-4">
+          <TabsList className="mb-4 bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md">
             <TabsTrigger value="performance">Performance</TabsTrigger>
             <TabsTrigger value="history">Interview History</TabsTrigger>
             <TabsTrigger value="progress">Progress</TabsTrigger>
@@ -148,7 +169,7 @@ const DashboardPage = () => {
           
           <TabsContent value="performance">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card>
+              <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-lg">Performance by Category</CardTitle>
                 </CardHeader>
@@ -156,18 +177,18 @@ const DashboardPage = () => {
                   <div className="h-80">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={performanceData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis domain={[0, 100]} />
-                        <Tooltip />
-                        <Bar dataKey="score" fill="#2563EB" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                        <XAxis dataKey="name" tick={{fill: 'currentColor'}} />
+                        <YAxis domain={[0, 100]} tick={{fill: 'currentColor'}} />
+                        <Tooltip contentStyle={{backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)'}} />
+                        <Bar dataKey="score" fill="rgba(37, 99, 235, 0.8)" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-lg">Problems by Difficulty</CardTitle>
                 </CardHeader>
@@ -187,10 +208,10 @@ const DashboardPage = () => {
                           label={(entry) => entry.name}
                         >
                           {difficultyData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            <Cell key={`cell-${index}`} fill={`${COLORS[index % COLORS.length]}CC`} />
                           ))}
                         </Pie>
-                        <Tooltip />
+                        <Tooltip contentStyle={{backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)'}} />
                         <Legend />
                       </PieChart>
                     </ResponsiveContainer>
@@ -201,7 +222,7 @@ const DashboardPage = () => {
           </TabsContent>
           
           <TabsContent value="history">
-            <Card>
+            <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
               <CardHeader>
                 <CardTitle className="text-lg">Past Interviews</CardTitle>
               </CardHeader>
@@ -209,7 +230,7 @@ const DashboardPage = () => {
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm border-collapse">
                     <thead>
-                      <tr className="bg-gray-100 dark:bg-gray-800">
+                      <tr className="bg-white/10 dark:bg-gray-800/30">
                         <th className="py-3 px-4 text-left">Date</th>
                         <th className="py-3 px-4 text-left">Problem</th>
                         <th className="py-3 px-4 text-left">Difficulty</th>
@@ -220,29 +241,29 @@ const DashboardPage = () => {
                     </thead>
                     <tbody>
                       {pastInterviews.map((interview) => (
-                        <tr key={interview.id} className="border-b border-gray-200 dark:border-gray-700">
+                        <tr key={interview.id} className="border-b border-gray-200/20 dark:border-gray-700/20">
                           <td className="py-3 px-4">{interview.date}</td>
                           <td className="py-3 px-4">{interview.problem}</td>
                           <td className="py-3 px-4">
                             <span className={`px-2 py-1 rounded-full text-xs ${
                               interview.difficulty === 'easy' 
-                                ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
+                                ? 'bg-green-100/70 text-green-800 dark:bg-green-900/70 dark:text-green-300'
                                 : interview.difficulty === 'medium'
-                                ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
-                                : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
-                            }`}>
+                                ? 'bg-yellow-100/70 text-yellow-800 dark:bg-yellow-900/70 dark:text-yellow-300'
+                                : 'bg-red-100/70 text-red-800 dark:bg-red-900/70 dark:text-red-300'
+                            } backdrop-blur-sm`}>
                               {interview.difficulty.charAt(0).toUpperCase() + interview.difficulty.slice(1)}
                             </span>
                           </td>
                           <td className="py-3 px-4">{interview.duration} min</td>
                           <td className="py-3 px-4">
                             <div className="flex items-center">
-                              <div className="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2 mr-2">
+                              <div className="w-16 bg-gray-200/50 dark:bg-gray-700/50 rounded-full h-2 mr-2">
                                 <div 
                                   className={`h-2 rounded-full ${
-                                    interview.score >= 90 ? 'bg-green-500' :
-                                    interview.score >= 75 ? 'bg-blue-500' :
-                                    'bg-yellow-500'
+                                    interview.score >= 90 ? 'bg-green-500/80' :
+                                    interview.score >= 75 ? 'bg-blue-500/80' :
+                                    'bg-yellow-500/80'
                                   }`}
                                   style={{ width: `${interview.score}%` }}
                                 />
@@ -251,7 +272,7 @@ const DashboardPage = () => {
                             </div>
                           </td>
                           <td className="py-3 px-4">
-                            <Button variant="ghost" size="sm">
+                            <Button variant="ghost" size="sm" className="hover:bg-white/10">
                               <Play size={16} className="mr-1" /> Replay
                             </Button>
                           </td>
@@ -265,7 +286,7 @@ const DashboardPage = () => {
           </TabsContent>
           
           <TabsContent value="progress">
-            <Card>
+            <Card className="bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
               <CardHeader>
                 <CardTitle className="text-lg">Your Progress Over Time</CardTitle>
               </CardHeader>
@@ -273,15 +294,15 @@ const DashboardPage = () => {
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={progressData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="day" />
-                      <YAxis domain={[50, 100]} />
-                      <Tooltip />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                      <XAxis dataKey="day" tick={{fill: 'currentColor'}} />
+                      <YAxis domain={[50, 100]} tick={{fill: 'currentColor'}} />
+                      <Tooltip contentStyle={{backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)'}} />
                       <Legend />
                       <Line 
                         type="monotone" 
                         dataKey="score" 
-                        stroke="#2563EB" 
+                        stroke="rgba(37, 99, 235, 0.8)" 
                         activeDot={{ r: 8 }} 
                         strokeWidth={2}
                       />
@@ -294,34 +315,34 @@ const DashboardPage = () => {
         </Tabs>
         
         {/* Recommendations */}
-        <Card className="mb-6">
+        <Card className="mb-6 bg-white/20 dark:bg-gray-800/20 border-white/20 dark:border-gray-700/20 backdrop-blur-md shadow-lg">
           <CardHeader>
             <CardTitle className="text-lg">Recommended Practice</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+              <div className="bg-white/10 dark:bg-gray-800/10 rounded-lg p-4 border border-white/20 dark:border-gray-700/20 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">Edge Case Handling</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
                   Based on your performance, focus on improving your edge case handling skills.
                 </p>
-                <Button variant="outline" size="sm" className="w-full">Practice Now</Button>
+                <Button variant="outline" size="sm" className="w-full bg-white/10 hover:bg-white/20 border-white/20">Practice Now</Button>
               </div>
               
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+              <div className="bg-white/10 dark:bg-gray-800/10 rounded-lg p-4 border border-white/20 dark:border-gray-700/20 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">Time Complexity</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
                   Work on optimizing your solutions for better time complexity.
                 </p>
-                <Button variant="outline" size="sm" className="w-full">Practice Now</Button>
+                <Button variant="outline" size="sm" className="w-full bg-white/10 hover:bg-white/20 border-white/20">Practice Now</Button>
               </div>
               
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+              <div className="bg-white/10 dark:bg-gray-800/10 rounded-lg p-4 border border-white/20 dark:border-gray-700/20 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">Hard Problems</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
                   Challenge yourself with more difficult problems to advance your skills.
                 </p>
-                <Button variant="outline" size="sm" className="w-full">Practice Now</Button>
+                <Button variant="outline" size="sm" className="w-full bg-white/10 hover:bg-white/20 border-white/20">Practice Now</Button>
               </div>
             </div>
           </CardContent>
