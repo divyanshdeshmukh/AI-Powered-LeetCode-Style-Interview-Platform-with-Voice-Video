@@ -6,7 +6,7 @@ import VideoPanel from '@/components/VideoPanel';
 import CodeEditor from '@/components/CodeEditor';
 import FeedbackPanel from '@/components/FeedbackPanel';
 import { useInterview } from '@/contexts/InterviewContext';
-import { X } from 'lucide-react';
+import { X, ArrowLeft, Home } from 'lucide-react';
 
 const InterviewPage = () => {
   const { status, startInterview, endInterview } = useInterview();
@@ -56,13 +56,33 @@ const InterviewPage = () => {
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
-      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 px-4">
+      <header className="bg-white/10 dark:bg-gray-800/20 border-b border-gray-200/20 dark:border-gray-700/20 py-3 px-4 backdrop-blur-lg glass-morphism">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <h1 className="text-xl font-bold">Technical Interview</h1>
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="rounded-full hover:bg-white/10"
+              onClick={() => navigate(-1)}
+              title="Go Back"
+            >
+              <ArrowLeft size={20} />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="rounded-full hover:bg-white/10"
+              onClick={() => navigate('/')}
+              title="Home"
+            >
+              <Home size={20} />
+            </Button>
+            <h1 className="text-xl font-bold">Technical Interview</h1>
+          </div>
           <Button 
             variant="outline" 
             size="sm" 
-            className="text-gray-500 border-gray-300"
+            className="text-gray-500 border-gray-300 bg-white/10 hover:bg-white/20 backdrop-blur-md"
             onClick={handleEndInterview}
           >
             <X size={16} className="mr-1" /> End Interview

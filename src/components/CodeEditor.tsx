@@ -4,13 +4,11 @@ import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useInterview } from '@/contexts/InterviewContext';
-import { Play, Send, ArrowLeft, Home } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Play, Send } from 'lucide-react';
 
 const CodeEditor = () => {
   const { currentLanguage, setLanguage, code, updateCode, runTests, submitSolution } = useInterview();
   const editorRef = useRef<HTMLTextAreaElement>(null);
-  const navigate = useNavigate();
   
   // In a real implementation, this would use Monaco Editor
   // For this prototype, we'll use a styled textarea
@@ -26,24 +24,6 @@ const CodeEditor = () => {
     <Card className="flex flex-col h-full border border-gray-200 dark:border-gray-700 bg-white/10 backdrop-blur-lg shadow-lg">
       <div className="flex items-center justify-between p-3 border-b border-gray-200/30 dark:border-gray-700/30 bg-white/5 dark:bg-gray-800/30 backdrop-blur-md">
         <div className="flex items-center space-x-2">
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="rounded-full hover:bg-white/10"
-            onClick={() => navigate(-1)}
-            title="Go Back"
-          >
-            <ArrowLeft size={18} />
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="rounded-full hover:bg-white/10"
-            onClick={() => navigate('/')}
-            title="Home"
-          >
-            <Home size={18} />
-          </Button>
           <Select value={currentLanguage} onValueChange={setLanguage}>
             <SelectTrigger className="w-32 bg-white/20 border-white/20 backdrop-blur-md">
               <SelectValue placeholder="Language" />

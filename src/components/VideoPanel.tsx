@@ -9,9 +9,9 @@ const VideoPanel = () => {
   const { cameraEnabled, micEnabled, toggleCamera, toggleMic, status } = useInterview();
 
   return (
-    <div className="grid grid-cols-2 gap-4 h-full">
+    <div className="flex flex-col gap-4 h-full">
       {/* AI Interviewer Video */}
-      <Card className="bg-gray-800 rounded-lg overflow-hidden relative flex items-center justify-center">
+      <Card className="bg-gray-800 rounded-lg overflow-hidden relative flex items-center justify-center flex-1">
         {status === 'connecting' ? (
           <div className="text-white animate-pulse">Connecting...</div>
         ) : (
@@ -31,7 +31,7 @@ const VideoPanel = () => {
       </Card>
 
       {/* User Video */}
-      <Card className="bg-gray-800 rounded-lg overflow-hidden relative">
+      <Card className="bg-gray-800 rounded-lg overflow-hidden relative flex-1">
         {!cameraEnabled ? (
           <div className="absolute inset-0 bg-gray-700 flex items-center justify-center">
             <div className="text-center">
