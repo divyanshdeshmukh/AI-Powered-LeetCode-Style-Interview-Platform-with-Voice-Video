@@ -1,0 +1,23 @@
+
+{
+  "greeting": {
+    "text": "Hello! I'm your AI interviewer for today. I'll be asking you some technical questions to assess your programming skills. Are you ready to begin?",
+    "followUp": "Let's start with a problem about arrays."
+  },
+  "problemIntroduction": {
+    "easy": "Let's start with a simple problem to warm up.",
+    "medium": "Now let's try a more challenging problem that tests your algorithm knowledge.",
+    "hard": "Let's tackle an advanced problem that requires careful optimization."
+  },
+  "hints": {
+    "twoSum": "Try using a hash map to store values you've seen so far.",
+    "linkedList": "Think about using two pointers for this problem.",
+    "dynamic": "Consider breaking this down into smaller subproblems."
+  },
+  "feedback": {
+    "correct": "Great job! Your solution is correct.",
+    "incorrect": "Your solution doesn't pass all test cases. Let's analyze why.",
+    "inefficient": "Your solution works, but can you think of a more efficient approach?",
+    "elegant": "Excellent! Your solution is both correct and elegant."
+  }
+}

@@ -1,5 +1,4 @@
 
-// Move from src/contexts/InterviewContext.tsx to src/frontend/contexts/InterviewContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Mock test result type

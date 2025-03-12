@@ -1,69 +1,78 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI-Powered Technical Interview Application
 
-**URL**: https://lovable.dev/projects/ebcf08cd-63d9-45ba-b42b-ed5597a5237c
+## Project Structure
 
-## How can I edit this code?
+```
+ai-interview-app/
+│── backend/                     # Backend code (Node.js + Express)
+│   ├── controllers/              # Business logic
+│   ├── models/                   # Database models
+│   ├── routes/                   # API endpoints
+│   ├── services/                 # AI + Code execution services
+│   ├── db.ts                     # PostgreSQL connection
+│   ├── server.ts                 # Entry point for backend
+│
+│── frontend/                     # Frontend code (React + Vite)
+│   ├── components/               # Reusable UI components
+│   ├── pages/                    # Application pages
+│   ├── hooks/                    # Custom React hooks
+│   ├── services/                 # API calls to backend
+│   ├── contexts/                 # Global state management
+│   ├── styles/                   # Styling (Tailwind)
+│   ├── App.tsx                   # Main app component
+│
+│── ai-model/                     # AI logic
+│   ├── prompts/                  # Predefined prompts for interview flow
+│   ├── interview_agent.py        # AI logic
+│
+│── code-execution/               # Secure Code Execution
+│   ├── sandbox/                  # Runs user code in isolation
+│   ├── dockerfiles/              # Docker setup for execution
+│
+│── database/                     # SQL schema & migrations
+│   ├── schema.sql                # Database tables
+│   ├── migrations/               # Database migrations
+```
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ebcf08cd-63d9-45ba-b42b-ed5597a5237c) and start prompting.
+- Node.js (v16+)
+- Python (v3.8+) for AI components
+- Docker for code execution sandbox
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+1. Clone the repository
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone <repository-url>
+cd ai-interview-app
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies
+```sh
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- AI-powered technical interviews
+- Real-time code editing and execution
+- Multiple programming language support
+- Performance analytics
+- Interview feedback and suggestions
 
-**Use GitHub Codespaces**
+## Technologies Used
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ebcf08cd-63d9-45ba-b42b-ed5597a5237c) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- **Frontend**: React, TypeScript, Tailwind CSS, shadcn/ui
+- **Backend**: Node.js, Express
+- **Database**: PostgreSQL
+- **AI**: Python-based interview agent
+- **Code Execution**: Docker-based sandbox environment
